@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap');
+
+$pale-blue: hsl(225, 100%, 94%);
+$bright-blue: hsl(245, 75%, 52%);
+
+$very-pale-blue: hsl(225, 100%, 98%);
+$desaturated-blue: hsl(224, 23%, 55%);
+$dark-blue: hsl(223, 47%, 23%);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 16px;
+  background-color: $pale-blue;
+}
+
+.main {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+
+  width: 85vw;
+  max-width: 400px;
+  background-color: $very-pale-blue;
+  border-radius: 0.75rem;
+
+  // shadows from: https://shadows.brumm.af
+  // prettier-ignore
+  box-shadow:
+    0 2.8px 2.2px rgba($color: $bright-blue, $alpha: 0.014),
+    0 6.7px 5.3px rgba($color: $bright-blue, $alpha: 0.02),
+    0 12.5px 10px rgba($color: $bright-blue, $alpha: 0.025),
+    0 22.3px 17.9px rgba($color: $bright-blue, $alpha: 0.03),
+    0 41.8px 33.4px rgba($color: $bright-blue, $alpha: 0.036),
+    0 100px 80px rgba($color: $bright-blue, $alpha: 0.05)
+  ;
+
+  &__image {
+    display: block;
+    border-radius: 0.75rem 0.75rem 0 0;
+
+    width: 100%;
+    height: auto;
+  }
+  &__content {
+    display: grid;
+    justify-items: center;
+    gap: 1.5rem;
+
+    text-align: center;
+    padding: 2rem 1.5rem;
+
+    &__header {
+      font-size: 1.5rem;
+      color: $dark-blue;
+    }
+    &__info {
+      color: $desaturated-blue;
+      line-height: 1.75;
+      font-size: 1rem;
+      letter-spacing: 0.25px;
+    }
+    &__plan {
+      padding: 0.75rem 0;
+      width: 100%;
+
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1.5rem;
+
+      div {
+        padding: 0.15rem 0;
+        text-align: left;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      &__name {
+        font-size: 1rem;
+        color: $dark-blue;
+        letter-spacing: 0.25px;
+      }
+      &__price {
+        font-size: 1rem;
+        color: $desaturated-blue;
+      }
+      &__link {
+        margin-left: auto;
+        color: $bright-blue;
+        transition: 0.3s ease;
+
+        &:hover,
+        &:focus {
+          transition: none;
+          color: lighten($color: $bright-blue, $amount: 15);
+          text-decoration: none;
+        }
+      }
+    }
+    &__actions {
+      width: 100%;
+
+      display: grid;
+      gap: 0.75rem;
+
+      &__button {
+        font: inherit;
+        font-weight: 700;
+
+        color: white;
+        background-color: $bright-blue;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.75rem;
+        cursor: pointer;
+        transition: 0.3s ease;
+
+        // prettier-ignore
+        box-shadow:
+          0 4.8px 2.9px rgba($color: $bright-blue, $alpha: 0.022),
+          0 8.7px 7px rgba($color: $bright-blue, $alpha: 0.032),
+          0 12.3px 13.3px rgba($color: $bright-blue, $alpha: 0.04),
+          0 16.7px 23.1px rgba($color: $bright-blue, $alpha: 0.048),
+          0 23.1px 39.8px rgba($color: $bright-blue, $alpha: 0.058),
+          0 40px 84px rgba($color: $bright-blue, $alpha: 0.08)
+        ;
+
+        &:hover,
+        &:focus {
+          transition: none;
+          background-color: lighten($color: $bright-blue, $amount: 15);
+        }
+
+        &--lame {
+          background-color: transparent;
+          color: $desaturated-blue;
+          box-shadow: none;
+
+          &:hover,
+          &:focus {
+            background-color: initial;
+            color: $dark-blue;
+          }
+        }
+      }
+    }
+  }
+}
+
+.pattern {
+  z-index: 1;
+  position: fixed;
+  bottom: 50%;
+  left: 0;
+  width: 100%;
+  min-height: 50%;
+}
+
+.attribution {
+  position: fixed;
+  bottom: 5px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  font-size: 0.8rem;
+  text-align: center;
+
+  a {
+    color: $desaturated-blue;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
