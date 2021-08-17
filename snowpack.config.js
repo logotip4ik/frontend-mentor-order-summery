@@ -13,10 +13,9 @@ module.exports = {
     /* ... */
   },
   devOptions: {
-    /* ... */
     open: 'none',
   },
   buildOptions: {
-    /* ... */
+    baseUrl: 'frontend-mentor-order-summery',
   },
 };
